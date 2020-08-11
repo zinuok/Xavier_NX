@@ -10,9 +10,9 @@ setting guide for Nvidia Xavier NX (arm architecture)
 
 ## Intel Realsense camera: D435i
 from [IntelRealSense](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md)
-- version info
-+ SDK: 2.36.0
-+ Firmware: 5.12.5
++ **version info**
+    + SDK - 2.36.0
+    + Firmware: 5.12.5
 ```
 - Download the complete source tree with git
 $ git clone https://github.com/IntelRealSense/librealsense.git
@@ -30,7 +30,7 @@ $ sudo apt-get install libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev
 
 - Building librealsense2 SDK using CMake
 - run CMake
-cmake \
+$ cmake \
 -DBUILD_EXAMPLES=true \
 -DFORCE_LIBUVC=true \
 -DBUILD_WITH_CUDA=true \
