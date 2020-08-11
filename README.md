@@ -24,9 +24,9 @@ $ tar -xvf librealsense-[version].tar.gz
 
 - prepare Ubuntu setup
 $ sudo apt-get update && sudo apt-get upgrade
-$ sudo apt-get install git libssl-dev libusb-1.0-0-dev pkg-config libgtk-3-dev
+$ sudo apt-get install -y git libssl-dev libusb-1.0-0-dev pkg-config libgtk-3-dev
 - for Ubuntu 18.04
-$ sudo apt-get install libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev
+$ sudo apt-get install -y libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev
 
 - Building librealsense2 SDK using CMake
 - run CMake
