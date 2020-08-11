@@ -99,12 +99,14 @@ $ sudo systemctl enable teamviewerd.service
 $ sudo service teamviewerd start
 ```
 
-+ **Adding 'aarch64' to **
-If you try to execute teamviewer, 'unknown architecture 'aarch64'' error will occur. You have to add the architecture info into teamviewr list
++ **Adding aarch64 architecture info**
+If you try to execute teamviewer, 'unknown architecture 'aarch64'' error will occur. You have to add the architecture info.<br>
+<br>
+access 'tvw_main' and change "( armv7l )" to "( armv71 | aarch64 )". Make sure to 'space' between them.
 ```
 $ vi /opt/teamviewer/tv_bin/script/tvw_main 
 ```
-change "( armv7l )" to "( armv71 | aarch64 )". Make sure to 'space' between them.
+
 
 
 + **Execute**
