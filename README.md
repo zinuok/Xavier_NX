@@ -47,6 +47,14 @@ $ sudo make uninstall && make clean
 $ make -j4 && sudo make install
 ```
 <br>
+<br>
+**Trouble shooting**
++ 'Failed to set power state error' or 'UDEV-Rules are missing' <br>
+This is because you are using outdated UDEV-Rules. Follow this:
+```
+$ sudo cp [librealsense path]/config/99-realsense-libusb.rules /etc/udev/rules.d/99-realsense-libusb.rules && sudo udevadm control --reload-rules && udevadm trigger
+```
+
 
 ## 2. CSI camera: IMX477
 shell script for using IMX477 Raspberry camera with Jetson Xavier NX is included.<br>
