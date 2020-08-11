@@ -30,10 +30,7 @@ $ sudo apt-get install -y libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev
 
 - Building librealsense2 SDK using CMake
 - run CMake
-$ cmake \
--DBUILD_EXAMPLES=true \
--DFORCE_LIBUVC=true \
--DBUILD_WITH_CUDA=true \
+$ cmake ../ -DBUILD_EXAMPLES=true -DFORCE_LIBUVC=true -DBUILD_WITH_CUDA=true
 (if you don't have CUDA, remove the last line)
 
 - recompile and install librealsense binaries
