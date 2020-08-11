@@ -9,7 +9,38 @@ setting guide for Nvidia Xavier NX (arm architecture)
 <br><br>
 
 ## Intel Realsense camera: D435i
-bla~
+from [IntelRealSense](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md)
+- version info
++ SDK: 2.36.0
++ Firmware: 5.12.5
+```
+- Download the complete source tree with git
+$ git clone https://github.com/IntelRealSense/librealsense.git
+
+- Download and unzip the latest stable version from here: https://github.com/IntelRealSense/librealsense/releases
+
+- unzip
+$ tar -xvf librealsense-[version].tar.gz
+
+- prepare Ubuntu setup
+$ sudo apt-get update && sudo apt-get upgrade
+$ sudo apt-get install git libssl-dev libusb-1.0-0-dev pkg-config libgtk-3-dev
+- for Ubuntu 18.04
+$ sudo apt-get install libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev
+
+- Building librealsense2 SDK using CMake
+- run CMake
+cmake \
+-DBUILD_EXAMPLES=true \
+-DFORCE_LIBUVC=true \
+-DBUILD_WITH_CUDA=true \
+(if you don't have CUDA, remove the last line)
+
+- recompile and install librealsense binaries
+$ sudo make uninstall && make clean
+$ make -j4 && sudo make install
+```
+<br>
 
 ## CSI camera: IMX477
 shell script for using IMX477 Raspberry camera with Jetson Xavier NX is included.<br>
