@@ -47,14 +47,30 @@ $ sudo make uninstall && make clean
 $ make -j4 && sudo make install
 ```
 
-**Trouble shooting**
+**< Trouble shooting >**
 + 'Failed to set power state error' or 'UDEV-Rules are missing' <br>
 This is because you are using outdated UDEV-Rules. Follow this:
 ```
 $ sudo cp [librealsense path]/config/99-realsense-libusb.rules /etc/udev/rules.d/99-realsense-libusb.rules && sudo udevadm control --reload-rules && udevadm trigger
 $ reboot
 ```
-
+**< with ROS >**
++ prerequisite
+```
+$ sudo apt install -y ros-melodic-ddynamic-reconfigure
+```
++ download realsense-ros package
+```
+$ git clone https://github.com/IntelRealSense/realsense-ros.git
+```
++ edit CMakeLists.txt: change **find_package(realsense2 2.36.0)** to **find_package(realsense2 [your SDK version])**
+```
+$ gedit ~/catkin_ws/src/realsense-ros/realsense2-camera/CMakeLists.txt
+```
++ catkin build
+```
+$ cd ~/catkin_ws && catkin build -DCMAKE_BUILD_TYPE=Release -j3 
+```
 
 ## 2. CSI camera: IMX477
 shell script for using IMX477 Raspberry camera with Jetson Xavier NX is included.<br>
