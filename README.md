@@ -58,7 +58,7 @@ $ cd Xavier_NX
 $ chmod +x imx477.sh && ./imx477.sh
 ```
 
-this is from [Ridgerun](https://github.com/RidgeRun/NVIDIA-Jetson-IMX477-RPIV3), author of IMX477 driver for Jetson board.<br> 
+Whole install informations and sources are from [Ridgerun](https://github.com/RidgeRun/NVIDIA-Jetson-IMX477-RPIV3), author of IMX477 driver for Jetson board.<br> 
 Thanks to **RidgeRun**
 <br>
 + **hardware & software setup**
