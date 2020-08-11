@@ -13,7 +13,7 @@ from [IntelRealSense](https://github.com/IntelRealSense/librealsense/blob/master
 + **version info**
     + SDK - 2.36.0
     + Firmware: 5.12.5
-<br>
+
 ```
 dfdf
 ```
