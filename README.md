@@ -1,8 +1,12 @@
 # Xavier_NX
 ***
-
+setting guide for Nvidia Xavier NX (arm architecture)
+# Index
+### 1. Intel Realsense camera: D435i
+### 2. CSI camera: IMX477
+### 3. Teamviewer for arm-architecture
 ***
-<br>
+<br><br>
 
 ## Intel Realsense camera: D435i
 bla~
