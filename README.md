@@ -46,8 +46,7 @@ $ cmake ../ -DBUILD_EXAMPLES=true -DFORCE_LIBUVC=true -DBUILD_WITH_CUDA=true
 $ sudo make uninstall && make clean
 $ make -j4 && sudo make install
 ```
-<br>
-<br>
+
 **Trouble shooting**
 + 'Failed to set power state error' or 'UDEV-Rules are missing' <br>
 This is because you are using outdated UDEV-Rules. Follow this:
