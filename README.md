@@ -8,7 +8,7 @@ setting guide for Nvidia Xavier NX (arm architecture)
 ***
 <br><br>
 
-## Intel Realsense camera: D435i
+## 1. Intel Realsense camera: D435i
 from [IntelRealSense](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md)
 + **version info**
     + SDK - 2.36.0
@@ -48,7 +48,7 @@ $ make -j4 && sudo make install
 ```
 <br>
 
-## CSI camera: IMX477
+## 2. CSI camera: IMX477
 shell script for using IMX477 Raspberry camera with Jetson Xavier NX is included.<br>
 This script is just a automated collection of install commands from [Install guide(Ridgerun)](https://developer.ridgerun.com/wiki/index.php?title=Raspberry_Pi_HQ_camera_IMX477_Linux_driver_for_Jetson#Compatibility_with_NVIDIA.C2.AEJetson.E2.84.A2_Platforms).<br>
 + **usage**
@@ -70,7 +70,7 @@ Thanks to **RidgeRun**
     + [Install guide](https://developer.ridgerun.com/wiki/index.php?title=Raspberry_Pi_HQ_camera_IMX477_Linux_driver_for_Jetson#Compatibility_with_NVIDIA.C2.AEJetson.E2.84.A2_Platforms)
 <br>
 
-## Teamviewer for arm-architecture
+## 3. Teamviewer for arm-architecture
 from [here](https://medium.com/@hmurari/how-to-install-teamviewer-on-a-jetson-nano-38080f87f039)
 + **Download the TeamViewer host for Raspberry Pi**<br>
 [Download link](https://www.teamviewer.com/en-us/download/raspberry-pi/)
