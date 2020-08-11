@@ -84,11 +84,6 @@ $ sudo apt install libxtst6:armhf
 
 + **Install Teamviewer**
 ```
-$ 
-```
-
-+ ****
-```
 $ cd ~/Downloads
 $ sudo dpkg -i teamviewer-host_15.4.4445_armhf.deb
 ```
