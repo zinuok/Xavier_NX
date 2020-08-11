@@ -53,6 +53,7 @@ $ make -j4 && sudo make install
 This is because you are using outdated UDEV-Rules. Follow this:
 ```
 $ sudo cp [librealsense path]/config/99-realsense-libusb.rules /etc/udev/rules.d/99-realsense-libusb.rules && sudo udevadm control --reload-rules && udevadm trigger
+$ reboot
 ```
 
 
