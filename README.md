@@ -14,9 +14,7 @@ from [IntelRealSense](https://github.com/IntelRealSense/librealsense/blob/master
     + SDK - 2.36.0
     + Firmware: 5.12.5
 
-```
-dfdf
-```
+
 Download the complete source tree with git
 ```
 $ git clone https://github.com/IntelRealSense/librealsense.git
