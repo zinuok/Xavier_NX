@@ -99,7 +99,7 @@ $ sudo systemctl enable teamviewerd.service
 $ sudo service teamviewerd start
 ```
 
-+ **Adding aarch64 architecture info**<br>
++ **Adding aarch64 architecture info**
 If you try to execute teamviewer, 'unknown architecture 'aarch64'' error will occur.
 To avoid this problem, you have to add the architecture info.
 <br>
