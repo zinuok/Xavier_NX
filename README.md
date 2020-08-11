@@ -102,7 +102,7 @@ $ sudo service teamviewerd start
 + **Adding aarch64 architecture info**<br>
 If you try to execute teamviewer, 'unknown architecture 'aarch64'' error will occur.<br>
 To avoid this problem, you have to add the architecture info.<br><br>
-access 'tvw_main' and change "( armv7l )" to "( armv71 | aarch64 )". Make sure to 'space' between them.
+access 'tvw_main' and change **( armv7l )** to **( armv71 | aarch64 )**. Make sure to 'space' between them.
 ```
 $ vi /opt/teamviewer/tv_bin/script/tvw_main 
 ```
