@@ -82,7 +82,7 @@ $ sudo apt update
 $ sudo apt install -y libxtst6:armhf
 ```
 
-+ **Install Teamviewer**
++ **Install Teamviewer** (some error may occur. it's normal in arm-based architecture)
 ```
 $ cd ~/Downloads
 $ sudo dpkg -i teamviewer-host_[version]_armhf.deb
@@ -97,5 +97,10 @@ $ sudo apt install -f
 ```
 $ sudo systemctl enable teamviewerd.service
 $ sudo service teamviewerd start
+```
+
++ **Execute**
+```
+$ teamviewer
 ```
 
