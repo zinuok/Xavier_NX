@@ -72,7 +72,7 @@ Thanks to **RidgeRun**
 
 ## Teamviewer for arm-architecture
 from [here](https://medium.com/@hmurari/how-to-install-teamviewer-on-a-jetson-nano-38080f87f039)
-+ **Download the TeamViewer host for Raspberry Pi**
++ **Download the TeamViewer host for Raspberry Pi**<br>
 [Download link](https://www.teamviewer.com/en-us/download/raspberry-pi/)
 
 + **add armv7–32bit architecture for apt packages.**
