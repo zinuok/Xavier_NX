@@ -71,5 +71,36 @@ Thanks to **RidgeRun**
 <br>
 
 ## Teamviewer for arm-architecture
-bla~
+from [here](https://medium.com/@hmurari/how-to-install-teamviewer-on-a-jetson-nano-38080f87f039)
++ **Download the TeamViewer host for Raspberry Pi**
+[Download link](https://www.teamviewer.com/en-us/download/raspberry-pi/)
+
++ **add armv7–32bit architecture for apt packages.**
+```
+$ sudo dpkg --add-architecture armhf
+$ sudo apt update
+$ sudo apt install libxtst6:armhf
+```
+
++ **Install Teamviewer**
+```
+$ 
+```
+
++ ****
+```
+$ cd ~/Downloads
+$ sudo dpkg -i teamviewer-host_15.4.4445_armhf.deb
+```
+
++ **Fix the installation errors observed above**
+```
+$ sudo apt install -f
+```
+
++ **Enable Teamviewer as a Daemon**
+```
+$ sudo systemctl enable teamviewerd.service
+$ sudo service teamviewerd start
+```
 
