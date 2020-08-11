@@ -79,7 +79,7 @@ from [here](https://medium.com/@hmurari/how-to-install-teamviewer-on-a-jetson-na
 ```
 $ sudo dpkg --add-architecture armhf
 $ sudo apt update
-$ sudo apt install libxtst6:armhf
+$ sudo apt install -y libxtst6:armhf
 ```
 
 + **Install Teamviewer**
