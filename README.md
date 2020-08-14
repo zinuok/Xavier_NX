@@ -131,9 +131,11 @@ access 'tvw_main' and change **( armv7l )** to **( armv71 | aarch64 )**. Make su
 $ vi /opt/teamviewer/tv_bin/script/tvw_main 
 ```
 
-+ **Additional problem fixing**<br>
++ **Additional problem fixing**
+<br>
 from [here](https://medium.com/@hmurari/how-to-install-teamviewer-on-a-jetson-nano-38080f87f039)
-Once you followed aboved sequence, you could execute Teamviewer. If you reboot your system and try to execute Teamviewer, however, Teamviewer will not be executed. 
+Once you followed aboved sequence, you could execute Teamviewer.<br>
+If you reboot your system and try to execute Teamviewer, however, Teamviewer will not be executed.<br>
 So you have to rename the '50_mesa.json' Teamviewer uses.
 ```
 $ sudo mv /usr/share/glvnd/egl_vendor.d/50_mesa.json /usr/share/glvnd/egl_vendor.d/50_mesa-old.json
