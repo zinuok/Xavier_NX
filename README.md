@@ -73,6 +73,8 @@ $ cd ~/catkin_ws && catkin build -DCMAKE_BUILD_TYPE=Release -j3
 ```
 
 ## 2. CSI camera: IMX477
+**update(2020.08.14): Ridgerun has implemented the easier method using Deb packages. refer option A in [Ridgerun](https://github.com/RidgeRun/NVIDIA-Jetson-IMX477-RPIV3)**<br>
+**following method is option B, more complicated one than option A. You don't have to use this method anymore**<br>
 shell script for using IMX477 Raspberry camera with Jetson Xavier NX is included.<br>
 This script is just an automated collection of install commands from [Install guide(Ridgerun)](https://developer.ridgerun.com/wiki/index.php?title=Raspberry_Pi_HQ_camera_IMX477_Linux_driver_for_Jetson#Compatibility_with_NVIDIA.C2.AEJetson.E2.84.A2_Platforms).<br>
 + **usage**
