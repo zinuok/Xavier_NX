@@ -131,7 +131,7 @@ access 'tvw_main' and change **( armv7l )** to **( armv71 | aarch64 )**. Make su
 $ vi /opt/teamviewer/tv_bin/script/tvw_main 
 ```
 
-+ ****
++ **Additional problem fixing**
 from [here](https://medium.com/@hmurari/how-to-install-teamviewer-on-a-jetson-nano-38080f87f039)
 Once you followed aboved sequence, you could execute teamviewer. If you reboot your system and try to execute Teamviewer, however, teamviewer will not be executed. 
 So you have to rename following file.
