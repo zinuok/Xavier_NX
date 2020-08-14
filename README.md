@@ -132,7 +132,7 @@ $ vi /opt/teamviewer/tv_bin/script/tvw_main
 ```
 
 + **Additional problem fixing**
-from [here](https://medium.com/@hmurari/how-to-install-teamviewer-on-a-jetson-nano-38080f87f039)
+from [here](https://medium.com/@hmurari/how-to-install-teamviewer-on-a-jetson-nano-38080f87f039)<br>
 Once you followed aboved sequence, you could execute Teamviewer.<br>
 If you reboot your system and try to execute Teamviewer, however, Teamviewer will not be executed.<br>
 So you have to rename the '50_mesa.json' Teamviewer uses.
