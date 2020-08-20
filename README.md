@@ -9,7 +9,7 @@ setting guide for Nvidia Xavier NX (arm architecture)
 ***
 <br><br>
 
-## 0.OpenCV (ver. 3.4.1) install 
+## 0. OpenCV (ver. 3.4.1) install 
 from [engcang](https://github.com/engcang/vins-application#-opencv-with-cuda--necessary-for-gpu-version-1)
 + for Xavier NX, CUDA_ARCH_BIN = 7.2 
 + when patch using **test.patch**
