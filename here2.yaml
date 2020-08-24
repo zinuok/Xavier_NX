@@ -1,0 +1,8 @@
+debug: 3
+device: /dev/ttyUSB0
+frame_id: m8n 
+rate: 5                     # in Hz
+nav_rate: 5                 # [# of measurement cycles], recommended 1 Hz, may 
+                            # be either 5 Hz (Dual constellation) or 
+                            # 8 Hz (GPS only)
+tmode3: 0
