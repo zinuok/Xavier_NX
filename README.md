@@ -2,14 +2,15 @@
 ***
 setting guide for Nvidia Xavier NX (arm architecture)
 # Index
-### 0. OpenCV (ver. 3.4.1) install 
-### 1. Intel Realsense camera: D435i
-### 2. CSI camera: IMX477
-### 3. Teamviewer for arm-architecture
+### 1. OpenCV (ver. 3.4.1) install 
+### 2. Intel Realsense camera: D435i
+### 3. CSI camera: IMX477
+### 4. Teamviewer for arm-architecture
+### 5. GPS reading from NEO-M8N (model: pixhawk here2) 
 ***
 <br><br>
 
-## 0. OpenCV (ver. 3.4.1) install 
+## 1. OpenCV (ver. 3.4.1) install 
 from [engcang](https://github.com/engcang/vins-application#-opencv-with-cuda--necessary-for-gpu-version-1)
 + for Xavier NX, CUDA_ARCH_BIN = 7.2 
 + when patch using **test.patch**
@@ -18,7 +19,7 @@ $ mv test.patch ~<opencv directory>/opencv-3.4.1/modulest/core/include/opencv2/c
 $ patch -N cvdef.h test.patch
 ```
 
-## 1. Intel Realsense camera: D435i
+## 2. Intel Realsense camera: D435i
 from [IntelRealSense](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md)
 + **my version info**
     + SDK - 2.36.0
@@ -82,7 +83,7 @@ $ gedit ~/catkin_ws/src/realsense-ros/realsense2-camera/CMakeLists.txt
 $ cd ~/catkin_ws && catkin build -DCMAKE_BUILD_TYPE=Release -j3 
 ```
 
-## 2. CSI camera: IMX477
+## 3. CSI camera: IMX477
 **update(2020.08.14): <br>
 Ridgerun has implemented the easier method using Deb packages. Please refer option A in [Ridgerun](https://github.com/RidgeRun/NVIDIA-Jetson-IMX477-RPIV3)**<br>
 **following method is option B, more complicated one than option A. You don't have to use this method anymore**<br><br>
@@ -107,7 +108,7 @@ Thanks to **RidgeRun**
     + [Install guide](https://developer.ridgerun.com/wiki/index.php?title=Raspberry_Pi_HQ_camera_IMX477_Linux_driver_for_Jetson#Compatibility_with_NVIDIA.C2.AEJetson.E2.84.A2_Platforms)
 <br>
 
-## 3. Teamviewer for arm-architecture
+## 4. Teamviewer for arm-architecture
 from [here](https://medium.com/@hmurari/how-to-install-teamviewer-on-a-jetson-nano-38080f87f039)
 + **Download the TeamViewer host for Raspberry Pi**<br>
 [Download link](https://www.teamviewer.com/en-us/download/raspberry-pi/)
@@ -158,3 +159,7 @@ $ sudo mv /usr/share/glvnd/egl_vendor.d/50_mesa.json /usr/share/glvnd/egl_vendor
 $ teamviewer
 ```
 
+## 5. GPS data reading from NEO-M8N (model: pixhawk here2)
+from [KomarRobotics/ublox](https://github.com/KumarRobotics/ublox)
++ Download the ROS package from above link and build.
++ to work with NEO-M8N, use [this]() yaml file from my repo.
