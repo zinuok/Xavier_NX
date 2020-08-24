@@ -160,6 +160,6 @@ $ teamviewer
 ```
 
 ## 5. GPS data reading from NEO-M8N (model: pixhawk here2)
-from [KomarRobotics/ublox](https://github.com/KumarRobotics/ublox)
+from [KumarRobotics/ublox](https://github.com/KumarRobotics/ublox)
 + Download the ROS package from above link and build.
-+ to work with NEO-M8N, use [this]() yaml file from my repo.
++ to work with NEO-M8N, use [this](https://github.com/zinuok/Xavier_NX/blob/master/here2.yaml) yaml file from my repo.
