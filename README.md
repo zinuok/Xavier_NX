@@ -24,7 +24,7 @@ some packges you will use need the header file defined in 'opencv_contrib'. In t
 $ git clone https://github.com/opencv/opencv_contrib.git && cd opencv_contrib
 $ git checkout -b v<your OpenCV version> <your OpenCV version>
 $ cmake -D CMAKE_BUILD_TYPE=RELEASE \
-      -D OPENCV_EXTRA_MODULES_PATH=/home/nvidia/opencv_contrib/modules \
+      -D OPENCV_EXTRA_MODULES_PATH=<opencv_contrib path>/modules \
       -D CMAKE_C_COMPILER=gcc-6 \
       -D CMAKE_CXX_COMPILER=g++-6 \
       -D CMAKE_INSTALL_PREFIX=/usr/local \
