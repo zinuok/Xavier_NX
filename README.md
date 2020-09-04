@@ -21,6 +21,7 @@ $ patch -N cvdef.h test.patch
 ```
 + build OpenCV with **opencv_contrib** <br>
 some packges you will use need the header file defined in 'opencv_contrib'. In this case, you can build OpenCV with the opencv_contrib.
+**if you build OpenCV with CUDA, should use multicore: 'sudo make install -j6' (otherwise, it's too slow)**
 ```
 $ git clone https://github.com/opencv/opencv_contrib.git && cd opencv_contrib
 $ git checkout -b v<your OpenCV version> <your OpenCV version>
