@@ -12,11 +12,37 @@ setting guide for Nvidia Xavier NX (arm architecture)
 
 ## 1. OpenCV (ver. 3.4.1) install 
 from [engcang](https://github.com/engcang/vins-application#-opencv-with-cuda--necessary-for-gpu-version-1)
-+ for Xavier NX, CUDA_ARCH_BIN = 7.2 
++ for AGX Xavier and Xavier NX, CUDA_ARCH_BIN = 7.2 
 + when patch using **test.patch**
 ```
 $ mv test.patch ~<opencv directory>/opencv-3.4.1/modulest/core/include/opencv2/core/
 $ patch -N cvdef.h test.patch
+```
++ build OpenCV with **opencv_contrib** <br>
+some packges you will use need the header file defined in 'opencv_contrib'. In this case, you can build OpenCV with the opencv_contrib.
+```
+$ git clone https://github.com/opencv/opencv_contrib.git && cd opencv_contrib
+$ git checkout -b v<your OpenCV version> <your OpenCV version>
+$ cmake -D CMAKE_BUILD_TYPE=RELEASE \
+      -D OPENCV_EXTRA_MODULES_PATH=/home/nvidia/opencv_contrib/modules \
+      -D CMAKE_C_COMPILER=gcc-6 \
+      -D CMAKE_CXX_COMPILER=g++-6 \
+      -D CMAKE_INSTALL_PREFIX=/usr/local \
+      -D WITH_CUDA=ON \
+      -D CUDA_ARCH_BIN=7.2 \  # 7.2 for for AGX Xavier and Xavier NX
+      -D CUDA_ARCH_PTX="" \
+      -D ENABLE_FAST_MATH=ON \
+      -D CUDA_FAST_MATH=ON \
+      -D WITH_CUBLAS=ON \
+      -D WITH_LIBV4L=ON \
+      -D WITH_GSTREAMER=ON \
+      -D WITH_GSTREAMER_0_10=OFF \
+      -D WITH_QT=ON \
+      -D WITH_OPENGL=ON \
+      -D BUILD_opencv_cudacodec=OFF \
+      -D CUDA_NVCC_FLAGS="--expt-relaxed-constexpr" \
+      -D WITH_TBB=ON \
+      ../
 ```
 
 ## 2. Intel Realsense camera: D435i
