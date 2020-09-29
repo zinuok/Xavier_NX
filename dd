@@ -1,0 +1,35 @@
+-------------- mono ---------------
+
+1) vins-mono
+$ roslaunch vins_estimator realsense_color.launch
+
+2) rovio
+roslaunch rovio d435i_rovio_node_mono.launch
+
+3) alvio (vins-mono + line)
+
+-------------- mono ---------------
+
+
+
+
+
+
+-------------- stereo ---------------
+
+1) vins-fusion-imu_x
+$ rosrun vins vins_node ~/catkin_ws/src/VINS-Fusion/config/realsense_d435i/realsense_stereo_imu_config.yaml
+$ rosrun loop_fusion loop_fusion_node ~/catkin_ws/src/VINS-Fusion/config/realsense_d435i/realsense_stereo_imu_config.yaml
+
+2) vins-fusion-imu_o
+set IMU=1 -> IMU=0 at realsense_stereo_imu_config.yaml
+$ rosrun vins vins_node ~/catkin_ws/src/VINS-Fusion/config/realsense_d435i/realsense_stereo_imu_config.yaml
+$ rosrun loop_fusion loop_fusion_node ~/catkin_ws/src/VINS-Fusion/config/realsense_d435i/realsense_stereo_imu_config.yaml
+
+3) msckf-vio
+$ roslaunch msckf_vio msckf_vio_realsense.launch
+
+4) ORB2
+$ roslaunch orb_slam2_ros orb_slam2_d435i_stereo.launch
+
+-------------- stereo ---------------
