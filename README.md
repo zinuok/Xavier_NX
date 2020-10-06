@@ -13,7 +13,7 @@ setting guide for Nvidia Xavier NX (arm architecture)
 ## 1. OpenCV (ver. 3.4.1) install 
 from [engcang](https://github.com/engcang/vins-application#-opencv-with-cuda--necessary-for-gpu-version-1)
 + if you build OpenCV manually, you have to do some fix. Please follow the steps from [here](https://github.com/engcang/vins-application#-opencv-with-cuda--necessary-for-gpu-version-1)
-+ for AGX Xavier and Xavier NX, CUDA_ARCH_BIN = 7.2 
++ CUDA_ARCH_BIN = 7.2 for AGX Xavier and Xavier NX, 6.2 for TX2  
 + when patch using **test.patch**
 ```
 $ mv test.patch ~<opencv directory>/opencv-3.4.1/modulest/core/include/opencv2/core/
@@ -22,8 +22,9 @@ $ patch -N cvdef.h test.patch
 + build OpenCV with **opencv_contrib** <br>
 some packges you will use need the header file defined in 'opencv_contrib'. In this case, you can build OpenCV with the opencv_contrib.
 **if you build OpenCV with CUDA, should use multicore: 'sudo make install -j6' (otherwise, it's too slow)**
-```
+
 # download OpenCV 3.4.1
+```
 $ sudo apt-get purge libopencv* python-opencv
 $ sudo apt-get update
 $ sudo apt-get install -y build-essential pkg-config
@@ -38,8 +39,9 @@ $ mkdir <opencv_source_directory> && cd <opencv_source_directory>
 $ wget -O opencv.zip https://github.com/opencv/opencv/archive/3.4.1.zip # check version
 $ unzip opencv.zip
 $ cd <opencv_source_directory>/opencv && mkdir build && cd build
-
+```
 # build OpenCV with contib
+```
 $ git clone https://github.com/opencv/opencv_contrib.git && cd opencv_contrib
 $ git checkout -b v<your OpenCV version> <your OpenCV version>
 $ cmake -D CMAKE_BUILD_TYPE=RELEASE \
@@ -62,6 +64,11 @@ $ cmake -D CMAKE_BUILD_TYPE=RELEASE \
       -D CUDA_NVCC_FLAGS="--expt-relaxed-constexpr" \
       -D WITH_TBB=ON \
       ../
+```
+# install OpenCV
+```
+$ time make -j8
+$ sudo make install -j6
 ```
 
 ## 2. Intel Realsense camera: D435i
