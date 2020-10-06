@@ -23,6 +23,23 @@ $ patch -N cvdef.h test.patch
 some packges you will use need the header file defined in 'opencv_contrib'. In this case, you can build OpenCV with the opencv_contrib.
 **if you build OpenCV with CUDA, should use multicore: 'sudo make install -j6' (otherwise, it's too slow)**
 ```
+# download OpenCV 3.4.1
+$ sudo apt-get purge libopencv* python-opencv
+$ sudo apt-get update
+$ sudo apt-get install -y build-essential pkg-config
+$ sudo apt install -y g++-6 gcc-6
+$ sudo apt-get install -y cmake libavcodec-dev libavformat-dev libavutil-dev \
+    libglew-dev libgtk2.0-dev libgtk-3-dev libjpeg-dev libpng-dev libpostproc-dev \
+    libswscale-dev libtbb-dev libtiff5-dev libv4l-dev libxvidcore-dev \
+    libx264-dev qt5-default zlib1g-dev libgl1 libglvnd-dev pkg-config \
+    libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev mesa-utils #libeigen3-dev
+$ sudo apt-get install python2.7-dev python3-dev python-numpy python3-numpy
+$ mkdir <opencv_source_directory> && cd <opencv_source_directory>
+$ wget -O opencv.zip https://github.com/opencv/opencv/archive/3.4.1.zip # check version
+$ unzip opencv.zip
+$ cd <opencv_source_directory>/opencv && mkdir build && cd build
+
+# build OpenCV with contib
 $ git clone https://github.com/opencv/opencv_contrib.git && cd opencv_contrib
 $ git checkout -b v<your OpenCV version> <your OpenCV version>
 $ cmake -D CMAKE_BUILD_TYPE=RELEASE \
@@ -31,7 +48,7 @@ $ cmake -D CMAKE_BUILD_TYPE=RELEASE \
       -D CMAKE_CXX_COMPILER=g++-6 \
       -D CMAKE_INSTALL_PREFIX=/usr/local \
       -D WITH_CUDA=ON \
-      -D CUDA_ARCH_BIN=7.2 \  # 7.2 for for AGX Xavier and Xavier NX
+      -D CUDA_ARCH_BIN=7.2 \  # 7.2 for for AGX Xavier and Xavier NX, 6.2 for TX2
       -D CUDA_ARCH_PTX="" \
       -D ENABLE_FAST_MATH=ON \
       -D CUDA_FAST_MATH=ON \
