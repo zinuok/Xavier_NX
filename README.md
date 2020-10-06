@@ -23,7 +23,7 @@ $ patch -N cvdef.h test.patch
 some packges you will use need the header file defined in 'opencv_contrib'. In this case, you can build OpenCV with the opencv_contrib.
 **if you build OpenCV with CUDA, should use multicore: 'sudo make install -j6' (otherwise, it's too slow)**
 
-### download OpenCV 3.4.1
+###### download OpenCV 3.4.1
 ```
 $ sudo apt-get purge libopencv* python-opencv
 $ sudo apt-get update
