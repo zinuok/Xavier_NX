@@ -88,6 +88,7 @@ $ git clone https://github.com/IntelRealSense/librealsense.git
 + **unzip**
 ```
 $ tar -xvf librealsense-[version].tar.gz
+$ cd librealsense
 ```
 + **prepare Ubuntu setup**
 ```
@@ -102,6 +103,7 @@ $ sudo apt-get install -y libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev
 
 + **Run CMake(if you don't have CUDA, remove the last line)**
 ```
+$ mkdir build && cd build
 $ cmake ../ -DBUILD_EXAMPLES=true -DFORCE_LIBUVC=true -DBUILD_WITH_CUDA=true
 ```
 + **recompile and install librealsense binaries**
