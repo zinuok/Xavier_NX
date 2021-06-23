@@ -73,9 +73,9 @@ $ sudo make install -j6
 
 ## 2. Intel Realsense camera: D435i
 from [IntelRealSense](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md)
-+ **my version info**
-    + SDK - 2.36.0
-    + Firmware: 5.12.6.0
++ **verified version info**
+    + SDK/Firmware - 2.36.0 / 5.12.6.0
+    + SDK/Firmware - 2.45.0
 
 
 + **Download the complete source tree with git**
