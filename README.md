@@ -24,27 +24,28 @@ some packges you will use need the header file defined in 'opencv_contrib'. In t
 **if you build OpenCV with CUDA, should use multicore: 'sudo make install -j6' (otherwise, it's too slow)**
 
 + download OpenCV 3.4.1
-```
-$ sudo apt-get purge libopencv* python-opencv
-$ sudo apt-get update
-$ sudo apt-get install -y build-essential pkg-config
-$ sudo apt install -y g++-6 gcc-6
-$ sudo apt-get install -y cmake libavcodec-dev libavformat-dev libavutil-dev \
+```bash
+sudo apt-get purge libopencv* python-opencv
+sudo apt-get update
+sudo apt-get install -y build-essential pkg-config
+sudo apt install -y g++-6 gcc-6
+sudo apt-get install -y cmake libavcodec-dev libavformat-dev libavutil-dev \
     libglew-dev libgtk2.0-dev libgtk-3-dev libjpeg-dev libpng-dev libpostproc-dev \
     libswscale-dev libtbb-dev libtiff5-dev libv4l-dev libxvidcore-dev \
     libx264-dev qt5-default zlib1g-dev libgl1 libglvnd-dev pkg-config \
     libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev mesa-utils #libeigen3-dev
-$ sudo apt-get install python2.7-dev python3-dev python-numpy python3-numpy
-$ mkdir <opencv_source_directory> && cd <opencv_source_directory>
-$ wget -O opencv.zip https://github.com/opencv/opencv/archive/3.4.1.zip # check version
-$ unzip opencv.zip
-$ cd <opencv_source_directory>/opencv && mkdir build && cd build
+sudo apt-get install python2.7-dev python3-dev python-numpy python3-numpy
+mkdir <opencv_source_directory> && cd <opencv_source_directory>
+wget -O opencv.zip https://github.com/opencv/opencv/archive/3.4.1.zip # check version
+unzip opencv.zip
+cd <opencv_source_directory>/opencv && mkdir build && cd build
 ```
+
 + build OpenCV with contib
-```
-$ git clone https://github.com/opencv/opencv_contrib.git && cd opencv_contrib
-$ git checkout -b v<your OpenCV version> <your OpenCV version>
-$ cmake -D CMAKE_BUILD_TYPE=RELEASE \
+```bash
+git clone https://github.com/opencv/opencv_contrib.git && cd opencv_contrib
+git checkout -b v<your OpenCV version> <your OpenCV version>
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
       -D OPENCV_EXTRA_MODULES_PATH=<opencv_contrib path>/modules \
       -D CMAKE_C_COMPILER=gcc-6 \
       -D CMAKE_CXX_COMPILER=g++-6 \
@@ -65,10 +66,11 @@ $ cmake -D CMAKE_BUILD_TYPE=RELEASE \
       -D WITH_TBB=ON \
       ../
 ```
+
 + install OpenCV
-```
-$ time make -j8
-$ sudo make install -j6
+```bash
+time make -j8
+sudo make install -j6
 ```
 
 ## 2. Intel Realsense camera: D435i
@@ -79,62 +81,67 @@ from [IntelRealSense](https://github.com/IntelRealSense/librealsense/blob/master
 
 
 + **Download the complete source tree with git**
-```
-$ git clone https://github.com/IntelRealSense/librealsense.git
+```bash
+git clone https://github.com/IntelRealSense/librealsense.git
 ```
 
 + **Download and unzip the latest stable version from [here](https://github.com/IntelRealSense/librealsense/releases)**
 
 + **unzip**
+```bash
+tar -xvf librealsense-[version].tar.gz
+cd librealsense
 ```
-$ tar -xvf librealsense-[version].tar.gz
-$ cd librealsense
-```
+
 + **prepare Ubuntu setup**
-```
-$ sudo apt-get update && sudo apt-get upgrade
-$ sudo apt-get install -y git libssl-dev libusb-1.0-0-dev pkg-config libgtk-3-dev
+```bash
+sudo apt-get update && sudo apt-get upgrade
+sudo apt-get install -y git libssl-dev libusb-1.0-0-dev pkg-config libgtk-3-dev
 ```
 
 + **for Ubuntu 18.04**
-```
-$ sudo apt-get install -y libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev
+```bash
+sudo apt-get install -y libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev
 ```
 
 + **Run CMake(if you don't have CUDA, remove the last line)**
+```bash
+mkdir build && cd build
+cmake ../ -DBUILD_EXAMPLES=true -DFORCE_LIBUVC=true -DBUILD_WITH_CUDA=true
 ```
-$ mkdir build && cd build
-$ cmake ../ -DBUILD_EXAMPLES=true -DFORCE_LIBUVC=true -DBUILD_WITH_CUDA=true
-```
+
 + **recompile and install librealsense binaries**
-```
-$ sudo make uninstall && make clean
-$ make -j4 && sudo make install
+```bash
+sudo make uninstall && make clean
+make -j4 && sudo make install
 ```
 
 **< Trouble shooting >**
 + 'Failed to set power state error' or 'UDEV-Rules are missing' <br>
 This is because you are using outdated UDEV-Rules. Follow this:
-```
-$ sudo cp $(pwd)/config/99-realsense-libusb.rules /etc/udev/rules.d/99-realsense-libusb.rules && sudo udevadm control --reload-rules && udevadm trigger
-$ reboot
+```bash
+sudo cp $(pwd)/config/99-realsense-libusb.rules /etc/udev/rules.d/99-realsense-libusb.rules && sudo udevadm control --reload-rules && udevadm trigger
+reboot
 ```
 **< with ROS >**
 + prerequisite
+```bash
+sudo apt install -y ros-melodic-ddynamic-reconfigure
 ```
-$ sudo apt install -y ros-melodic-ddynamic-reconfigure
-```
+
 + download realsense-ros package
+```bash
+git clone https://github.com/IntelRealSense/realsense-ros.git
 ```
-$ git clone https://github.com/IntelRealSense/realsense-ros.git
-```
+
 + edit CMakeLists.txt: change **find_package(realsense2 2.36.0)** to **find_package(realsense2 [your SDK version])**
+```bash
+gedit ~/catkin_ws/src/realsense-ros/realsense2-camera/CMakeLists.txt
 ```
-$ gedit ~/catkin_ws/src/realsense-ros/realsense2-camera/CMakeLists.txt
-```
+
 + catkin build
-```
-$ cd ~/catkin_ws && catkin build -DCMAKE_BUILD_TYPE=Release -j3 
+```bash
+cd ~/catkin_ws && catkin build -DCMAKE_BUILD_TYPE=Release -j3 
 ```
 
 ## 3. CSI camera: IMX477
@@ -144,10 +151,10 @@ Ridgerun has implemented the easier method using Deb packages. Please refer opti
 shell script for using IMX477 Raspberry camera with Jetson Xavier NX is included.<br>
 This script is just an automated collection of install commands from [Install guide(Ridgerun)](https://developer.ridgerun.com/wiki/index.php?title=Raspberry_Pi_HQ_camera_IMX477_Linux_driver_for_Jetson#Compatibility_with_NVIDIA.C2.AEJetson.E2.84.A2_Platforms).<br>
 + **usage**
-```
-$ git clone https://github.com/zinuok/Xavier_NX.git
-$ cd Xavier_NX
-$ chmod +x imx477.sh && ./imx477.sh
+```bash
+git clone https://github.com/zinuok/Xavier_NX.git
+cd Xavier_NX
+chmod +x imx477.sh && ./imx477.sh
 ```
 
 Whole install informations and sources are from [Ridgerun](https://github.com/RidgeRun/NVIDIA-Jetson-IMX477-RPIV3), author of IMX477 driver for Jetson board.<br> 
@@ -168,35 +175,35 @@ from [here](https://medium.com/@hmurari/how-to-install-teamviewer-on-a-jetson-na
 [Download link](https://www.teamviewer.com/en-us/download/raspberry-pi/)
 
 + **add armv7–32bit architecture for apt packages.**
-```
-$ sudo dpkg --add-architecture armhf
-$ sudo apt update
-$ sudo apt install -y libxtst6:armhf
+```bash
+sudo dpkg --add-architecture armhf
+sudo apt update
+sudo apt install -y libxtst6:armhf
 ```
 
 + **Install Teamviewer** (some error may occur. it's normal in arm-based architecture)
-```
-$ cd ~/Downloads
-$ sudo dpkg -i teamviewer-host_[version]_armhf.deb
+```bash
+cd ~/Downloads
+sudo dpkg -i teamviewer-host_[version]_armhf.deb
 ```
 
 + **Fix the installation errors observed above**
-```
-$ sudo apt install -f
+```bash
+sudo apt install -f
 ```
 
 + **Enable Teamviewer as a Daemon**
-```
-$ sudo systemctl enable teamviewerd.service
-$ sudo service teamviewerd start
+```bash
+sudo systemctl enable teamviewerd.service
+sudo service teamviewerd start
 ```
 
 + **Adding aarch64 architecture info**<br>
 If you try to execute teamviewer, 'unknown architecture 'aarch64'' error will occur.<br>
 To avoid this problem, you have to add the architecture info.<br><br>
 access 'tvw_main' and change **( armv7l )** to **( armv71 | aarch64 )**. Make sure to 'space' between them.
-```
-$ vi /opt/teamviewer/tv_bin/script/tvw_main 
+```bash
+vi /opt/teamviewer/tv_bin/script/tvw_main 
 ```
 
 + **Additional problem fixing**
@@ -204,13 +211,13 @@ from [here](https://medium.com/@hmurari/how-to-install-teamviewer-on-a-jetson-na
 Once you followed aboved sequence, you could execute Teamviewer.<br>
 If you reboot your system and try to execute Teamviewer, however, Teamviewer will not be executed.<br>
 So you have to rename the '50_mesa.json' Teamviewer uses.
-```
-$ sudo mv /usr/share/glvnd/egl_vendor.d/50_mesa.json /usr/share/glvnd/egl_vendor.d/50_mesa-old.json
+```bash
+sudo mv /usr/share/glvnd/egl_vendor.d/50_mesa.json /usr/share/glvnd/egl_vendor.d/50_mesa-old.json
 ```
 
 + **Execute**
-```
-$ teamviewer
+```bash
+teamviewer
 ```
 
 ## 5. GPS data reading from NEO-M8N (model: pixhawk here2)
